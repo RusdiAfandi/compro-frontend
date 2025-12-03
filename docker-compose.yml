@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: compro-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: compro_akademik
+    volumes:
+      - mongodb_data:/data/db
+      - ./server/data_json:/docker-entrypoint-initdb.d/data_json:ro
+    networks:
+      - compro-network
+
+  # Backend API Server
+  backend:
+    build: 
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: compro-backend
+    restart: unless-stopped
+    ports:
+      - "5001:5001"
+    environment:
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongodb:27017/compro_akademik
+      - JWT_SECRET=compro_akademik_secret_key_2024
+      - PORT=5001
+    depends_on:
+      - mongodb
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    networks:
+      - compro-network
+    command: nodemon index.js
+
+volumes:
+  mongodb_data:
+
+networks:
+  compro-network:
+    driver: bridge
