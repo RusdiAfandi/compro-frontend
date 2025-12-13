@@ -377,23 +377,19 @@ export default function IntegrasiMinat() {
         <Dialog open={showEndSessionDialog} onOpenChange={setShowEndSessionDialog}>
           <DialogContent className="p-0 overflow-hidden max-w-sm">
             <div className="relative bg-white rounded-lg text-center">
-              {/* Icon */}
+              {/* Illustration */}
               <div className="flex justify-center items-center pt-8 pb-4">
-                <div className="w-20 h-20 border-4 border-aira-primary rounded-full flex items-center justify-center">
-                  <span className="text-aira-primary text-4xl font-bold">?</span>
-                </div>
+                <img
+                  src="/assets/images/endSession-ilustration.png"
+                  alt="End Session"
+                  className="w-20 h-20 object-contain"
+                />
               </div>
               {/* Question Text */}
-              <div className="px-6 pb-2">
-                <DialogTitle className="text-xl font-bold text-gray-800">
+              <div className="px-6 pb-6">
+                <DialogTitle className="text-xl font-bold text-aira-primary">
                   End Session?
                 </DialogTitle>
-              </div>
-              {/* Subtitle */}
-              <div className="px-6 pb-6">
-                <DialogDescription className="text-sm text-gray-600">
-                  Sesi integrasi minat akan berakhir.
-                </DialogDescription>
               </div>
               {/* Buttons */}
               <div className="flex justify-center gap-4 px-6 pb-6">
