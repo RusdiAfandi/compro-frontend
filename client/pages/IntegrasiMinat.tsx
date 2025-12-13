@@ -252,7 +252,7 @@ export default function IntegrasiMinat() {
               <button
                 type="button"
                 onClick={() => navigate("/dashboard")}
-                className="p-0 bg-transparent mt-1.5 -ml-[32px]"
+                className="p-0 bg-transparent mt-1.5 -ml-[40px]"
                 aria-label="Ke Dashboard"
               >
                 <img
@@ -440,7 +440,7 @@ export default function IntegrasiMinat() {
             <button
               type="button"
               onClick={() => navigate("/dashboard")}
-              className="p-0 bg-transparent mt-1.5 -ml-[32px]"
+              className="p-0 bg-transparent mt-1.5 -ml-[40px]"
               aria-label="Ke Dashboard"
             >
               <img
