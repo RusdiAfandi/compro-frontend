@@ -102,14 +102,14 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {/* Header with Sidebar Toggle */}
-      <header className="sticky top-0 z-50 bg-gradient-to-r from-aira-primary to-aira-secondary py-6 px-4 md:px-8 relative overflow-hidden shadow-lg">
+      <header className="sticky top-0 z-50 bg-gradient-to-r from-aira-primary to-aira-secondary h-[72px] px-4 md:px-8 relative overflow-visible shadow-lg">
         {/* Decorative gradient circles */}
         <div className="absolute right-0 top-1/3 w-[600px] h-[600px] rounded-full opacity-[0.08] bg-gradient-to-br from-white via-white/50 to-transparent pointer-events-none" />
         <div className="absolute -left-32 -top-32 w-[500px] h-[500px] opacity-[0.1] pointer-events-none">
           <div className="w-full h-full rounded-full bg-gradient-to-br from-white to-transparent" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto flex items-center justify-between">
+        <div className="relative max-w-7xl mx-auto h-full flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -121,13 +121,20 @@ export default function Dashboard() {
                 <Menu className="w-6 h-6" />
               )}
             </button>
-            <img
-              src="/assets/images/logo-aira-footer.png"
-              alt="AIRA Logo"
-              className="w-12 h-12 md:w-16 md:h-16 object-contain"
-            />
+            <button
+              type="button"
+              onClick={() => navigate("/dashboard")}
+              className="p-0 bg-transparent mt-1.5"
+              aria-label="Ke Dashboard"
+            >
+              <img
+                src="/assets/images/logo-aira-footer.png"
+                alt="AIRA Logo"
+                className="w-[140px] h-[140px] object-contain -my-[35px]"
+              />
+            </button>
           </div>
-          <h1 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold">
+          <h1 className="absolute left-1/2 -translate-x-1/2 text-white text-xl md:text-2xl font-bold text-center">
             Dashboard
           </h1>
           <div className="w-12 md:w-16"></div>
@@ -140,7 +147,7 @@ export default function Dashboard() {
         <aside
           className={`${
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-          } fixed left-0 top-[96px] md:top-[112px] bottom-0 z-40 w-64 bg-gradient-to-b from-aira-primary to-aira-secondary transition-transform duration-300 ease-in-out shadow-xl`}
+          } fixed left-0 top-[72px] md:top-[72px] bottom-0 z-40 w-64 bg-gradient-to-b from-aira-primary to-aira-secondary transition-transform duration-300 ease-in-out shadow-xl`}
         >
           <nav className="p-6 space-y-4 text-white h-full flex flex-col">
             <button className="w-full text-left py-3 px-4 rounded-lg bg-white/10 hover:bg-white/20 transition-colors font-medium">
@@ -187,10 +194,10 @@ export default function Dashboard() {
         )}
 
         {/* Main Dashboard Content */}
-        <main className="flex-1 px-4 md:px-8 py-8 bg-gray-50">
-          <div className="max-w-4xl mx-auto space-y-8">
+        <main className="flex-1 px-4 md:px-8 py-6 bg-gray-50">
+          <div className="max-w-4xl mx-auto">
             {/* Profile Card */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 origin-top scale-[0.9] -mb-[5%]">
               {/* Profile Header */}
               <div className="flex flex-col items-center mb-8">
                 <div className="w-20 h-20 rounded-full bg-gray-300 mb-4 overflow-hidden">

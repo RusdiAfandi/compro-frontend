@@ -19,7 +19,7 @@ export default function Index() {
           {/* Start Button */}
           <Link
             to="/login"
-            className="inline-block bg-aira-primary hover:bg-aira-secondary transition-colors text-white font-bold text-2xl px-24 py-6 rounded-[40px] shadow-lg"
+            className="inline-block bg-aira-primary hover:bg-aira-secondary transition-colors text-white font-bold text-lg px-12 py-3 rounded-[30px] shadow-lg"
           >
             start
           </Link>

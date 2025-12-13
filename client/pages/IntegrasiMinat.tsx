@@ -230,14 +230,14 @@ export default function IntegrasiMinat() {
     return (
       <div className="min-h-screen bg-white flex flex-col">
         {/* Header with Sidebar Toggle */}
-        <header className="sticky top-0 z-50 bg-gradient-to-r from-aira-primary to-aira-secondary py-6 px-4 md:px-8 relative overflow-hidden shadow-lg">
+        <header className="sticky top-0 z-50 bg-gradient-to-r from-aira-primary to-aira-secondary h-[72px] px-4 md:px-8 relative overflow-visible shadow-lg">
           {/* Decorative gradient circles */}
           <div className="absolute right-0 top-1/3 w-[600px] h-[600px] rounded-full opacity-[0.08] bg-gradient-to-br from-white via-white/50 to-transparent pointer-events-none" />
           <div className="absolute -left-32 -top-32 w-[500px] h-[500px] opacity-[0.1] pointer-events-none">
             <div className="w-full h-full rounded-full bg-gradient-to-br from-white to-transparent" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent pointer-events-none" />
-          <div className="relative max-w-7xl mx-auto flex items-center justify-between">
+          <div className="relative max-w-7xl mx-auto h-full flex items-center justify-between">
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -249,13 +249,20 @@ export default function IntegrasiMinat() {
                   <Menu className="w-6 h-6" />
                 )}
               </button>
-              <img
-                src="/assets/images/logo-aira-footer.png"
-                alt="AIRA Logo"
-                className="w-12 h-12 md:w-16 md:h-16 object-contain"
-              />
+              <button
+                type="button"
+                onClick={() => navigate("/dashboard")}
+                className="p-0 bg-transparent mt-1.5"
+                aria-label="Ke Dashboard"
+              >
+                <img
+                  src="/assets/images/logo-aira-footer.png"
+                  alt="AIRA Logo"
+                  className="w-[140px] h-[140px] object-contain -my-[35px]"
+                />
+              </button>
             </div>
-            <h1 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold">
+            <h1 className="absolute left-1/2 -translate-x-1/2 text-white text-xl md:text-2xl font-bold text-center">
               Integrasi Minat
             </h1>
             <div className="w-12 md:w-16"></div>
@@ -268,7 +275,7 @@ export default function IntegrasiMinat() {
           <aside
             className={`${
               isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-            } fixed left-0 top-[96px] md:top-[112px] bottom-0 z-40 w-64 bg-gradient-to-b from-aira-primary to-aira-secondary transition-transform duration-300 ease-in-out shadow-xl`}
+            } fixed left-0 top-[72px] md:top-[72px] bottom-0 z-40 w-64 bg-gradient-to-b from-aira-primary to-aira-secondary transition-transform duration-300 ease-in-out shadow-xl`}
           >
             <nav className="p-6 space-y-4 text-white h-full flex flex-col">
               <button
@@ -368,21 +375,25 @@ export default function IntegrasiMinat() {
 
         {/* End Session Confirmation Dialog */}
         <Dialog open={showEndSessionDialog} onOpenChange={setShowEndSessionDialog}>
-          <DialogContent className="sm:max-w-[425px] p-0 overflow-hidden">
+          <DialogContent className="p-0 overflow-hidden max-w-sm">
             <div className="relative bg-white rounded-lg text-center">
-              {/* Illustration */}
+              {/* Icon */}
               <div className="flex justify-center items-center pt-8 pb-4">
-                <img
-                  src="/assets/images/endSession-ilustration.png"
-                  alt="End Session Confirmation"
-                  className="w-full max-w-[300px] h-auto object-contain"
-                />
+                <div className="w-20 h-20 border-4 border-aira-primary rounded-full flex items-center justify-center">
+                  <span className="text-aira-primary text-4xl font-bold">?</span>
+                </div>
               </div>
               {/* Question Text */}
-              <div className="px-6 pb-6">
+              <div className="px-6 pb-2">
                 <DialogTitle className="text-xl font-bold text-gray-800">
                   End Session?
                 </DialogTitle>
+              </div>
+              {/* Subtitle */}
+              <div className="px-6 pb-6">
+                <DialogDescription className="text-sm text-gray-600">
+                  Sesi integrasi minat akan berakhir.
+                </DialogDescription>
               </div>
               {/* Buttons */}
               <div className="flex justify-center gap-4 px-6 pb-6">
@@ -411,14 +422,14 @@ export default function IntegrasiMinat() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {/* Header with Sidebar Toggle */}
-      <header className="sticky top-0 z-50 bg-gradient-to-r from-aira-primary to-aira-secondary py-6 px-4 md:px-8 relative overflow-hidden shadow-lg">
+      <header className="sticky top-0 z-50 bg-gradient-to-r from-aira-primary to-aira-secondary h-[72px] px-4 md:px-8 relative overflow-visible shadow-lg">
         {/* Decorative gradient circles */}
         <div className="absolute right-0 top-1/3 w-[600px] h-[600px] rounded-full opacity-[0.08] bg-gradient-to-br from-white via-white/50 to-transparent pointer-events-none" />
         <div className="absolute -left-32 -top-32 w-[500px] h-[500px] opacity-[0.1] pointer-events-none">
           <div className="w-full h-full rounded-full bg-gradient-to-br from-white to-transparent" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto flex items-center justify-between">
+        <div className="relative max-w-7xl mx-auto h-full flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -430,13 +441,20 @@ export default function IntegrasiMinat() {
                 <Menu className="w-6 h-6" />
               )}
             </button>
-            <img
-              src="/assets/images/logo-aira-footer.png"
-              alt="AIRA Logo"
-              className="w-12 h-12 md:w-16 md:h-16 object-contain"
-            />
+            <button
+              type="button"
+              onClick={() => navigate("/dashboard")}
+              className="p-0 bg-transparent mt-1.5"
+              aria-label="Ke Dashboard"
+            >
+              <img
+                src="/assets/images/logo-aira-footer.png"
+                alt="AIRA Logo"
+                className="w-[140px] h-[140px] object-contain -my-[35px]"
+              />
+            </button>
           </div>
-          <h1 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold">
+          <h1 className="absolute left-1/2 -translate-x-1/2 text-white text-xl md:text-2xl font-bold text-center">
             Integrasi Minat
           </h1>
           <div className="w-12 md:w-16"></div>
@@ -449,7 +467,7 @@ export default function IntegrasiMinat() {
         <aside
           className={`${
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-          } fixed left-0 top-[96px] md:top-[112px] bottom-0 z-40 w-64 bg-gradient-to-b from-aira-primary to-aira-secondary transition-transform duration-300 ease-in-out shadow-xl`}
+          } fixed left-0 top-[72px] md:top-[72px] bottom-0 z-40 w-64 bg-gradient-to-b from-aira-primary to-aira-secondary transition-transform duration-300 ease-in-out shadow-xl`}
         >
           <nav className="p-6 space-y-4 text-white h-full flex flex-col">
             <button
@@ -534,7 +552,7 @@ export default function IntegrasiMinat() {
                       Add Hard Skill
                     </button>
                   </DialogTrigger>
-                <DialogContent className="max-w-md">
+                  <DialogContent>
                   <DialogHeader>
                     <DialogTitle>Pencarian Hardskill</DialogTitle>
                   </DialogHeader>
@@ -623,7 +641,7 @@ export default function IntegrasiMinat() {
                       Add Soft Skill
                     </button>
                   </DialogTrigger>
-                <DialogContent className="max-w-md">
+                  <DialogContent className="max-w-lg">
                   <DialogHeader>
                     <DialogTitle>Pencarian Softskill</DialogTitle>
                   </DialogHeader>

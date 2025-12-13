@@ -486,14 +486,14 @@ export default function SimulasiIPK() {
     return (
       <div className="min-h-screen bg-white flex flex-col">
         {/* Header with Sidebar Toggle */}
-        <header className="sticky top-0 z-50 bg-gradient-to-r from-aira-primary to-aira-secondary py-6 px-4 md:px-8 relative overflow-hidden shadow-lg">
+        <header className="sticky top-0 z-50 bg-gradient-to-r from-aira-primary to-aira-secondary h-[72px] px-4 md:px-8 relative overflow-visible shadow-lg">
           {/* Decorative gradient circles */}
           <div className="absolute right-0 top-1/3 w-[600px] h-[600px] rounded-full opacity-[0.08] bg-gradient-to-br from-white via-white/50 to-transparent pointer-events-none" />
           <div className="absolute -left-32 -top-32 w-[500px] h-[500px] opacity-[0.1] pointer-events-none">
             <div className="w-full h-full rounded-full bg-gradient-to-br from-white to-transparent" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent pointer-events-none" />
-          <div className="relative max-w-7xl mx-auto flex items-center justify-between">
+          <div className="relative max-w-7xl mx-auto h-full flex items-center justify-between">
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -505,13 +505,20 @@ export default function SimulasiIPK() {
                   <Menu className="w-6 h-6" />
                 )}
               </button>
-              <img
-                src="/assets/images/logo-aira-footer.png"
-                alt="AIRA Logo"
-                className="w-12 h-12 md:w-16 md:h-16 object-contain"
-              />
+              <button
+                type="button"
+                onClick={() => navigate("/dashboard")}
+                className="p-0 bg-transparent mt-1.5"
+                aria-label="Ke Dashboard"
+              >
+                <img
+                  src="/assets/images/logo-aira-footer.png"
+                  alt="AIRA Logo"
+                  className="w-[140px] h-[140px] object-contain -my-[35px]"
+                />
+              </button>
             </div>
-            <h1 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold">
+            <h1 className="absolute left-1/2 -translate-x-1/2 text-white text-xl md:text-2xl font-bold text-center">
               Simulasi IPK
             </h1>
             <div className="w-12 md:w-16"></div>
@@ -524,7 +531,7 @@ export default function SimulasiIPK() {
           <aside
             className={`${
               isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-            } fixed left-0 top-[96px] md:top-[112px] bottom-0 z-40 w-64 bg-gradient-to-b from-aira-primary to-aira-secondary transition-transform duration-300 ease-in-out shadow-xl`}
+            } fixed left-0 top-[72px] md:top-[72px] bottom-0 z-40 w-64 bg-gradient-to-b from-aira-primary to-aira-secondary transition-transform duration-300 ease-in-out shadow-xl`}
           >
             <nav className="p-6 space-y-4 text-white h-full flex flex-col">
               <button
@@ -598,7 +605,7 @@ export default function SimulasiIPK() {
               </div>
 
               {/* Results Card */}
-              <div className="bg-white border border-gray-200 rounded-3xl shadow-xl p-6 md:p-8 space-y-6">
+              <div className="bg-white border border-gray-200 rounded-3xl shadow-xl p-6 md:p-8 space-y-6 origin-top scale-[0.9]">
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* IPS Box */}
                   <div>
@@ -807,26 +814,24 @@ export default function SimulasiIPK() {
             }
           }}
         >
-          <DialogContent className="sm:max-w-[425px] p-0 overflow-hidden">
+          <DialogContent className="p-0 overflow-hidden max-w-sm">
             <div className="relative bg-white rounded-lg text-center">
-              {/* Illustration */}
+              {/* Icon */}
               <div className="flex justify-center items-center pt-8 pb-4">
-                <img
-                  src="/assets/images/edit-ilustration.png"
-                  alt="Exit Confirmation"
-                  className="w-full max-w-[300px] h-auto object-contain"
-                />
+                <div className="w-20 h-20 border-4 border-aira-primary rounded-full flex items-center justify-center">
+                  <span className="text-aira-primary text-4xl font-bold">?</span>
+                </div>
               </div>
               {/* Question Text */}
-              <div className="px-6 pb-6">
+              <div className="px-6 pb-2">
                 <DialogTitle className="text-xl font-bold text-gray-800">
                   Keluar dari Simulasi IPK?
                 </DialogTitle>
               </div>
               {/* Subtitle */}
-              <div className="px-6 pb-2">
+              <div className="px-6 pb-6">
                 <DialogDescription className="text-sm text-gray-600">
-                  Perubahan yang belum disimpan akan hilang. Apakah Anda yakin ingin keluar?
+                  Perubahan yang belum disimpan akan hilang.
                 </DialogDescription>
               </div>
               {/* Buttons */}
@@ -857,19 +862,19 @@ export default function SimulasiIPK() {
             }
           }}
         >
-          <DialogContent className="sm:max-w-[425px] p-0 overflow-hidden">
+          <DialogContent className="p-0 overflow-hidden max-w-sm">
             <div className="relative bg-white rounded-lg text-center">
               {/* Illustration */}
               <div className="flex justify-center items-center pt-8 pb-4">
                 <img
                   src="/assets/images/endSession-ilustration.png"
-                  alt="End Session Confirmation"
-                  className="w-full max-w-[300px] h-auto object-contain"
+                  alt="End Session"
+                  className="w-20 h-20 object-contain"
                 />
               </div>
               {/* Question Text */}
               <div className="px-6 pb-6">
-                <DialogTitle className="text-xl font-bold text-gray-800">
+                <DialogTitle className="text-xl font-bold text-aira-primary">
                   End Session?
                 </DialogTitle>
               </div>
@@ -902,14 +907,14 @@ export default function SimulasiIPK() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {/* Header with Sidebar Toggle */}
-      <header className="sticky top-0 z-50 bg-gradient-to-r from-aira-primary to-aira-secondary py-6 px-4 md:px-8 relative overflow-hidden shadow-lg">
+      <header className="sticky top-0 z-50 bg-gradient-to-r from-aira-primary to-aira-secondary h-[72px] px-4 md:px-8 relative overflow-visible shadow-lg">
         {/* Decorative gradient circles */}
         <div className="absolute right-0 top-1/3 w-[600px] h-[600px] rounded-full opacity-[0.08] bg-gradient-to-br from-white via-white/50 to-transparent pointer-events-none" />
         <div className="absolute -left-32 -top-32 w-[500px] h-[500px] opacity-[0.1] pointer-events-none">
           <div className="w-full h-full rounded-full bg-gradient-to-br from-white to-transparent" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto flex items-center justify-between">
+        <div className="relative max-w-7xl mx-auto h-full flex items-center justify-between">
           <div className="flex items-center gap-4">
             <button
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -921,13 +926,20 @@ export default function SimulasiIPK() {
                 <Menu className="w-6 h-6" />
               )}
             </button>
-            <img
-              src="/assets/images/logo-aira-footer.png"
-              alt="AIRA Logo"
-              className="w-12 h-12 md:w-16 md:h-16 object-contain"
-            />
+            <button
+              type="button"
+              onClick={() => navigate("/dashboard")}
+              className="p-0 bg-transparent mt-1.5"
+              aria-label="Ke Dashboard"
+            >
+              <img
+                src="/assets/images/logo-aira-footer.png"
+                alt="AIRA Logo"
+                className="w-[140px] h-[140px] object-contain -my-[35px]"
+              />
+            </button>
           </div>
-          <h1 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold">
+          <h1 className="absolute left-1/2 -translate-x-1/2 text-white text-xl md:text-2xl font-bold text-center">
             Simulasi IPK
           </h1>
           <div className="w-12 md:w-16"></div>
@@ -940,7 +952,7 @@ export default function SimulasiIPK() {
         <aside
           className={`${
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-          } fixed left-0 top-[96px] md:top-[112px] bottom-0 z-40 w-64 bg-gradient-to-b from-aira-primary to-aira-secondary transition-transform duration-300 ease-in-out shadow-xl`}
+          } fixed left-0 top-[72px] md:top-[72px] bottom-0 z-40 w-64 bg-gradient-to-b from-aira-primary to-aira-secondary transition-transform duration-300 ease-in-out shadow-xl`}
         >
           <nav className="p-6 space-y-4 text-white h-full flex flex-col">
             <button
@@ -1002,7 +1014,7 @@ export default function SimulasiIPK() {
             </div>
 
             {/* Input Section */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 origin-top scale-[0.9]">
               <div className="grid md:grid-cols-3 gap-4 md:gap-6 items-end">
                 {/* Semester Dropdown */}
                 <div className="flex-1">
@@ -1066,7 +1078,7 @@ export default function SimulasiIPK() {
             </div>
 
             {/* Table Section */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 origin-top scale-[0.9]">
               {/* Mobile Card Layout */}
               <div className="md:hidden space-y-4">
                 {courses.length === 0 ? (
@@ -1329,15 +1341,15 @@ export default function SimulasiIPK() {
       {/* Add Course Dialog - Search & Select */}
       {!editingCourse && (
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="w-[95vw] sm:w-auto sm:max-w-[700px] max-h-[80vh] overflow-y-auto">
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-hidden flex flex-col">
             <DialogHeader>
               <DialogTitle className="text-xl font-bold">
                 Tambah Mata Kuliah
               </DialogTitle>
             </DialogHeader>
-            <div className="space-y-4">
+            <div className="space-y-4 flex-1 flex flex-col overflow-hidden">
               {/* Filter/Search Section */}
-              <div className="flex gap-3 items-end">
+              <div className="flex gap-3 items-end flex-shrink-0">
                 <div className="flex-1">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Tingkat
@@ -1380,9 +1392,9 @@ export default function SimulasiIPK() {
               </div>
 
               {/* Course List Table */}
-              <div className="border rounded-lg overflow-hidden">
+              <div className="border rounded-lg overflow-hidden flex-1 overflow-y-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-100">
+                  <thead className="bg-gray-100 sticky top-0">
                     <tr>
                       <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
                         Nama Mata Kuliah
@@ -1452,15 +1464,15 @@ export default function SimulasiIPK() {
       {/* Edit Course Dialog - Search & Select */}
       {editingCourse && (
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="w-[95vw] sm:w-auto sm:max-w-[700px] max-h-[80vh] overflow-y-auto">
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-hidden flex flex-col">
             <DialogHeader>
               <DialogTitle className="text-xl font-bold">
                 Edit Mata Kuliah
               </DialogTitle>
             </DialogHeader>
-            <div className="space-y-4">
+            <div className="space-y-4 flex-1 flex flex-col overflow-hidden">
               {/* Filter/Search Section */}
-              <div className="flex gap-3 items-end">
+              <div className="flex gap-3 items-end flex-shrink-0">
                 <div className="flex-1">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Tingkat
@@ -1503,9 +1515,9 @@ export default function SimulasiIPK() {
               </div>
 
               {/* Course List Table */}
-              <div className="border rounded-lg overflow-hidden">
+              <div className="border rounded-lg overflow-hidden flex-1 overflow-y-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-100">
+                  <thead className="bg-gray-100 sticky top-0">
                     <tr>
                       <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
                         Nama Mata Kuliah
@@ -1574,23 +1586,17 @@ export default function SimulasiIPK() {
         open={isDeleteConfirmationOpen}
         onOpenChange={setIsDeleteConfirmationOpen}
       >
-        <DialogContent className="w-[90vw] sm:w-auto sm:max-w-[425px] p-0 overflow-hidden">
+        <DialogContent className="p-0 overflow-hidden max-w-sm">
           <div className="relative bg-white rounded-lg text-center">
             {/* Trash Icon */}
             <div className="flex justify-center items-center pt-8 pb-4">
               <Trash2 className="w-20 h-20 text-aira-primary" />
             </div>
             {/* Question Text */}
-            <div className="px-6 pb-2">
+            <div className="px-6 pb-6">
               <DialogTitle className="text-xl font-bold text-gray-800">
                 Delete Mata Kuliah?
               </DialogTitle>
-            </div>
-            {/* Subtitle */}
-            <div className="px-6 pb-6">
-              <DialogDescription className="text-sm text-gray-600">
-                You can always add it back later on.
-              </DialogDescription>
             </div>
             {/* Buttons */}
             <div className="flex justify-center gap-4 px-6 pb-6">
@@ -1619,14 +1625,14 @@ export default function SimulasiIPK() {
         open={isConfirmationDialogOpen}
         onOpenChange={setIsConfirmationDialogOpen}
       >
-        <DialogContent className="w-[90vw] sm:w-auto sm:max-w-[425px] p-0 overflow-hidden">
+        <DialogContent className="p-0 overflow-hidden max-w-sm">
           <div className="relative bg-white rounded-lg text-center">
             {/* Illustration */}
             <div className="flex justify-center items-center pt-8 pb-4">
               <img
                 src="/assets/images/edit-ilustration.png"
                 alt="Confirmation"
-                className="w-full max-w-[300px] h-auto object-contain"
+                className="w-20 h-20 object-contain"
               />
             </div>
             {/* Question Text */}
@@ -1664,24 +1670,26 @@ export default function SimulasiIPK() {
         open={isDeleteSuccessOpen}
         onOpenChange={setIsDeleteSuccessOpen}
       >
-        <DialogContent className="w-[90vw] sm:w-auto sm:max-w-[425px] p-0 overflow-hidden">
+        <DialogContent className="p-0 overflow-hidden max-w-sm">
           <div className="relative bg-white rounded-lg text-center">
             {/* Trash Icon */}
             <div className="flex justify-center items-center pt-8 pb-4">
               <Trash2 className="w-20 h-20 text-aira-primary" />
             </div>
             {/* Success Message */}
-            <div className="px-6 pb-2">
+            <div className="px-6 pb-6">
               <DialogTitle className="text-xl font-bold text-gray-800">
                 Mata Kuliah successfully deleted
               </DialogTitle>
             </div>
-            {/* Subtitle */}
-            <div className="px-6 pb-6">
-              <DialogDescription className="text-sm text-gray-600">
-                The selected mata kuliah has been removed from the system. This
-                action cannot be undone.
-              </DialogDescription>
+            {/* Button */}
+            <div className="flex justify-center px-6 pb-6">
+              <button
+                onClick={() => setIsDeleteSuccessOpen(false)}
+                className="px-12 py-2 bg-aira-primary hover:bg-aira-secondary text-white font-medium rounded-lg transition-colors"
+              >
+                OK
+              </button>
             </div>
           </div>
         </DialogContent>
@@ -1694,7 +1702,7 @@ export default function SimulasiIPK() {
           // Prevent closing during loading - do nothing
         }}
       >
-        <DialogContent className="w-[90vw] sm:w-auto sm:max-w-[500px] p-0 overflow-hidden border-0 [&>button]:hidden">
+        <DialogContent className="p-0 overflow-hidden border-0 [&>button]:hidden">
           <div className="relative bg-white rounded-lg">
             {/* Illustration */}
             <div className="flex justify-center items-center pt-8 pb-4">
@@ -1723,26 +1731,24 @@ export default function SimulasiIPK() {
           }
         }}
       >
-        <DialogContent className="w-[90vw] sm:w-auto sm:max-w-[425px] p-0 overflow-hidden">
+        <DialogContent className="p-0 overflow-hidden max-w-sm">
           <div className="relative bg-white rounded-lg text-center">
-            {/* Illustration */}
+            {/* Icon */}
             <div className="flex justify-center items-center pt-8 pb-4">
-              <img
-                src="/assets/images/edit-ilustration.png"
-                alt="Exit Confirmation"
-                className="w-full max-w-[300px] h-auto object-contain"
-              />
+              <div className="w-20 h-20 border-4 border-aira-primary rounded-full flex items-center justify-center">
+                <span className="text-aira-primary text-4xl font-bold">?</span>
+              </div>
             </div>
             {/* Question Text */}
-            <div className="px-6 pb-6">
+            <div className="px-6 pb-2">
               <DialogTitle className="text-xl font-bold text-gray-800">
                 Keluar dari Simulasi IPK?
               </DialogTitle>
             </div>
             {/* Subtitle */}
-            <div className="px-6 pb-2">
+            <div className="px-6 pb-6">
               <DialogDescription className="text-sm text-gray-600">
-                Perubahan yang belum disimpan akan hilang. Apakah Anda yakin ingin keluar?
+                Perubahan yang belum disimpan akan hilang.
               </DialogDescription>
             </div>
             {/* Buttons */}
@@ -1773,19 +1779,19 @@ export default function SimulasiIPK() {
           }
         }}
       >
-        <DialogContent className="w-[90vw] sm:w-auto sm:max-w-[425px] p-0 overflow-hidden">
+        <DialogContent className="p-0 overflow-hidden max-w-sm">
           <div className="relative bg-white rounded-lg text-center">
             {/* Illustration */}
             <div className="flex justify-center items-center pt-8 pb-4">
               <img
                 src="/assets/images/endSession-ilustration.png"
-                alt="End Session Confirmation"
-                className="w-full max-w-[300px] h-auto object-contain"
+                alt="End Session"
+                className="w-20 h-20 object-contain"
               />
             </div>
             {/* Question Text */}
             <div className="px-6 pb-6">
-              <DialogTitle className="text-xl font-bold text-gray-800">
+              <DialogTitle className="text-xl font-bold text-aira-primary">
                 End Session?
               </DialogTitle>
             </div>
@@ -1813,7 +1819,7 @@ export default function SimulasiIPK() {
         open={isSKSWarningOpen}
         onOpenChange={setIsSKSWarningOpen}
       >
-        <DialogContent className="sm:max-w-[425px] p-0 overflow-hidden">
+        <DialogContent className="p-0 overflow-hidden max-w-sm">
           <div className="relative bg-white rounded-lg text-center">
             {/* Warning Icon */}
             <div className="flex justify-center items-center pt-8 pb-4">
@@ -1822,12 +1828,15 @@ export default function SimulasiIPK() {
               </div>
             </div>
             {/* Warning Message */}
-            <div className="px-6 pb-6">
-              <DialogTitle className="text-xl font-bold text-gray-800 mb-2">
+            <div className="px-6 pb-2">
+              <DialogTitle className="text-xl font-bold text-gray-800">
                 SKS yang diambil lebih dari 24
               </DialogTitle>
+            </div>
+            {/* Subtitle */}
+            <div className="px-6 pb-6">
               <DialogDescription className="text-sm text-gray-600">
-                Total SKS yang Anda ambil melebihi batas maksimal 24 SKS per semester.
+                Total SKS melebihi batas maksimal 24 SKS.
               </DialogDescription>
             </div>
             {/* Button */}
