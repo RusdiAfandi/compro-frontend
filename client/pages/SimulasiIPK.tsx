@@ -508,7 +508,7 @@ export default function SimulasiIPK() {
               <button
                 type="button"
                 onClick={() => navigate("/dashboard")}
-                className="p-0 bg-transparent mt-1.5"
+                className="p-0 bg-transparent mt-1.5 -ml-[32px]"
                 aria-label="Ke Dashboard"
               >
                 <img
@@ -929,7 +929,7 @@ export default function SimulasiIPK() {
             <button
               type="button"
               onClick={() => navigate("/dashboard")}
-              className="p-0 bg-transparent mt-1.5"
+              className="p-0 bg-transparent mt-1.5 -ml-[32px]"
               aria-label="Ke Dashboard"
             >
               <img
