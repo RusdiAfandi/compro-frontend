@@ -1,7 +1,8 @@
 import { Mail, Phone, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Footer() {
+  const navigate = useNavigate();
   return (
     <footer className="relative bg-aira-primary w-full overflow-hidden">
       {/* Decorative gradient circles */}
@@ -14,11 +15,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-12">
           {/* Logo Section */}
           <div className="flex flex-col items-center md:items-start">
-            <img
-              src="/assets/images/logo-aira-footer.png"
-              alt="AIRA Logo"
-              className="w-48 h-48 md:w-56 md:h-56"
-            />
+            <button
+              type="button"
+              onClick={() => navigate("/dashboard")}
+              className="p-0 bg-transparent"
+              aria-label="Ke Dashboard"
+            >
+              <img
+                src="/assets/images/logo-aira-footer.png"
+                alt="AIRA Logo"
+                className="w-48 h-48 md:w-56 md:h-56"
+              />
+            </button>
           </div>
 
           {/* Get in Touch Section */}
