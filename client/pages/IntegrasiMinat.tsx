@@ -241,7 +241,7 @@ export default function IntegrasiMinat() {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+                className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors relative z-10"
               >
                 {isSidebarOpen ? (
                   <X className="w-6 h-6" />
@@ -252,7 +252,7 @@ export default function IntegrasiMinat() {
               <button
                 type="button"
                 onClick={() => navigate("/dashboard")}
-                className="p-0 bg-transparent mt-1.5 -ml-[43px]"
+                className="p-0 bg-transparent mt-1.5 -ml-[48px]"
                 aria-label="Ke Dashboard"
               >
                 <img
@@ -429,7 +429,7 @@ export default function IntegrasiMinat() {
           <div className="flex items-center gap-4">
             <button
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-              className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+              className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors relative z-10"
             >
               {isSidebarOpen ? (
                 <X className="w-6 h-6" />
@@ -440,7 +440,7 @@ export default function IntegrasiMinat() {
             <button
               type="button"
               onClick={() => navigate("/dashboard")}
-              className="p-0 bg-transparent mt-1.5 -ml-[43px]"
+              className="p-0 bg-transparent mt-1.5 -ml-[48px]"
               aria-label="Ke Dashboard"
             >
               <img
