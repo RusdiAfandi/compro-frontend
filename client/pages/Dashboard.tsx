@@ -173,7 +173,20 @@ export default function Dashboard() {
             </button>
             <div className="flex-1"></div>
             <button 
-              onClick={() => {
+              onClick={async () => {
+                try {
+                  // Clear interests on logout
+                  await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001/api'}/interests`, {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                      'Authorization': `Bearer ${getAuthToken()}`
+                    },
+                    body: JSON.stringify({ hard_skills: [], soft_skills: [] })
+                  }).catch(() => {});
+                } catch (error) {
+                  // Ignore errors, proceed with logout
+                }
                 removeAuthToken();
                 localStorage.removeItem('userData');
                 navigate("/");

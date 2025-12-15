@@ -51,22 +51,17 @@ export default function IntegrasiMinat() {
 
     const loadInterests = async () => {
       try {
+        // Clear interests on page load to ensure fresh start
+        await interestsService.clearInterests();
+        
         const response: any = await interestsService.getInterests();
         if (response.success) {
           setAvailableSkills(response.data.available_options);
-          // Set user's current interests
-          if (response.data.user_interests) {
-            const userHardSkills = response.data.user_interests.hard_skills.map((skill: string, index: number) => ({
-              id: index.toString(),
-              name: skill
-            }));
-            const userSoftSkills = response.data.user_interests.soft_skills.map((skill: string, index: number) => ({
-              id: index.toString(),
-              name: skill
-            }));
-            setSelectedHardskills(userHardSkills);
-            setSelectedSoftskills(userSoftSkills);
-          }
+          // Always start with empty selections
+          setSelectedHardskills([]);
+          setSelectedSoftskills([]);
+          setRecommendations([]);
+          setShowResults(false);
         }
       } catch (error) {
         toast({
@@ -192,14 +187,25 @@ export default function IntegrasiMinat() {
     setShowEndSessionDialog(true);
   };
 
-  const confirmEndSession = () => {
-    // Reset all state
-    setSelectedHardskills([]);
-    setSelectedSoftskills([]);
-    setShowResults(false);
-    setShowEndSessionDialog(false);
-    // Navigate to dashboard or home
-    navigate("/dashboard");
+  const confirmEndSession = async () => {
+    try {
+      // Clear interests from backend
+      await interestsService.clearInterests();
+      // Reset all state
+      setSelectedHardskills([]);
+      setSelectedSoftskills([]);
+      setRecommendations([]);
+      setShowResults(false);
+      setShowEndSessionDialog(false);
+      // Navigate to dashboard or home
+      navigate("/dashboard");
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Gagal mengakhiri sesi",
+      });
+    }
   };
 
   // Show warning before page unload if data exists

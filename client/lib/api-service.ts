@@ -72,6 +72,13 @@ export const interestsService = {
       method: 'POST',
     });
   },
+
+  async clearInterests() {
+    return apiRequest(API_ENDPOINTS.INTERESTS.UPDATE, {
+      method: 'POST',
+      body: JSON.stringify({ hard_skills: [], soft_skills: [] }),
+    });
+  },
 };
 
 // Courses services
