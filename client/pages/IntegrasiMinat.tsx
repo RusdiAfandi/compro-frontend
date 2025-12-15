@@ -161,7 +161,7 @@ export default function IntegrasiMinat() {
         const formattedRecs = recResponse.data.recommendations.map((rec: any, index: number) => ({
           id: index + 1,
           title: rec.name || rec.nama_mk || rec.title,
-          description: rec.description || "Mata kuliah yang direkomendasikan berdasarkan minat Anda."
+          description: rec.reason || rec.description || "Mata kuliah yang direkomendasikan berdasarkan minat Anda."
         }));
         setRecommendations(formattedRecs);
       } else {
