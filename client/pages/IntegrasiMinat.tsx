@@ -192,28 +192,16 @@ export default function IntegrasiMinat() {
     setShowEndSessionDialog(true);
   };
 
-  const confirmEndSession = async () => {
-    try {
-      // Reset interests in database
-      await interestsService.resetInterests();
-      
-      // Reset all state
-      setSelectedHardskills([]);
-      setSelectedSoftskills([]);
-      setShowResults(false);
-      setShowEndSessionDialog(false);
-      
-      // Navigate to dashboard
-      navigate("/dashboard");
-    } catch (error) {
-      console.error("Error resetting interests:", error);
-      // Still reset state and navigate even if API call fails
-      setSelectedHardskills([]);
-      setSelectedSoftskills([]);
-      setShowResults(false);
-      setShowEndSessionDialog(false);
-      navigate("/dashboard");
-    }
+  const confirmEndSession = () => {
+    // Reset all state
+    setSelectedHardskills([]);
+    setSelectedSoftskills([]);
+    setRecommendations([]);
+    setShowResults(false);
+    setShowEndSessionDialog(false);
+    setError("");
+    // Navigate to dashboard or home
+    navigate("/dashboard");
   };
 
   // Show warning before page unload if data exists
@@ -316,6 +304,11 @@ export default function IntegrasiMinat() {
               <div className="flex-1"></div>
               <button
                 onClick={() => {
+                  // Reset all state before logout
+                  setSelectedHardskills([]);
+                  setSelectedSoftskills([]);
+                  setShowResults(false);
+                  removeAuthToken();
                   navigate("/");
                   setIsSidebarOpen(false);
                 }}
@@ -504,6 +497,11 @@ export default function IntegrasiMinat() {
             <div className="flex-1"></div>
             <button
               onClick={() => {
+                // Reset all state before logout
+                setSelectedHardskills([]);
+                setSelectedSoftskills([]);
+                setShowResults(false);
+                removeAuthToken();
                 navigate("/");
                 setIsSidebarOpen(false);
               }}
