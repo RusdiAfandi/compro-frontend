@@ -51,11 +51,17 @@ export default function IntegrasiMinat() {
 
     const loadInterests = async () => {
       try {
+        // First, clear any existing data in backend
+        await interestsService.updateInterests({
+          hard_skills: [],
+          soft_skills: []
+        });
+        
+        // Then load available skills options
         const response: any = await interestsService.getInterests();
         if (response.success) {
           setAvailableSkills(response.data.available_options);
-          // Don't auto-load previous interests - start fresh each time
-          // Users should manually input their skills each session
+          // Start fresh - no previous data loaded
         }
       } catch (error) {
         toast({
