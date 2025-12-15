@@ -51,17 +51,22 @@ export default function IntegrasiMinat() {
 
     const loadInterests = async () => {
       try {
-        // First, clear any existing data in backend
-        await interestsService.updateInterests({
-          hard_skills: [],
-          soft_skills: []
-        });
-        
-        // Then load available skills options
         const response: any = await interestsService.getInterests();
         if (response.success) {
           setAvailableSkills(response.data.available_options);
-          // Start fresh - no previous data loaded
+          // Set user's current interests
+          if (response.data.user_interests) {
+            const userHardSkills = response.data.user_interests.hard_skills.map((skill: string, index: number) => ({
+              id: index.toString(),
+              name: skill
+            }));
+            const userSoftSkills = response.data.user_interests.soft_skills.map((skill: string, index: number) => ({
+              id: index.toString(),
+              name: skill
+            }));
+            setSelectedHardskills(userHardSkills);
+            setSelectedSoftskills(userSoftSkills);
+          }
         }
       } catch (error) {
         toast({
@@ -187,24 +192,12 @@ export default function IntegrasiMinat() {
     setShowEndSessionDialog(true);
   };
 
-  const confirmEndSession = async () => {
-    try {
-      // Clear data in backend
-      await interestsService.updateInterests({
-        hard_skills: [],
-        soft_skills: []
-      });
-    } catch (error) {
-      console.error("Failed to clear interests:", error);
-    }
-    
+  const confirmEndSession = () => {
     // Reset all state
     setSelectedHardskills([]);
     setSelectedSoftskills([]);
-    setRecommendations([]);
     setShowResults(false);
     setShowEndSessionDialog(false);
-    setError("");
     // Navigate to dashboard or home
     navigate("/dashboard");
   };
@@ -308,22 +301,7 @@ export default function IntegrasiMinat() {
               </button>
               <div className="flex-1"></div>
               <button
-                onClick={async () => {
-                  try {
-                    // Clear data in backend before logout
-                    await interestsService.updateInterests({
-                      hard_skills: [],
-                      soft_skills: []
-                    });
-                  } catch (error) {
-                    console.error("Failed to clear interests:", error);
-                  }
-                  
-                  // Reset all state before logout
-                  setSelectedHardskills([]);
-                  setSelectedSoftskills([]);
-                  setShowResults(false);
-                  removeAuthToken();
+                onClick={() => {
                   navigate("/");
                   setIsSidebarOpen(false);
                 }}
@@ -511,22 +489,7 @@ export default function IntegrasiMinat() {
             </button>
             <div className="flex-1"></div>
             <button
-              onClick={async () => {
-                try {
-                  // Clear data in backend before logout
-                  await interestsService.updateInterests({
-                    hard_skills: [],
-                    soft_skills: []
-                  });
-                } catch (error) {
-                  console.error("Failed to clear interests:", error);
-                }
-                
-                // Reset all state before logout
-                setSelectedHardskills([]);
-                setSelectedSoftskills([]);
-                setShowResults(false);
-                removeAuthToken();
+              onClick={() => {
                 navigate("/");
                 setIsSidebarOpen(false);
               }}
