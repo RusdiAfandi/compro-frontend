@@ -72,6 +72,12 @@ export const interestsService = {
       method: 'POST',
     });
   },
+
+  async resetInterests() {
+    return apiRequest(API_ENDPOINTS.INTERESTS.RESET, {
+      method: 'POST',
+    });
+  },
 };
 
 // Courses services

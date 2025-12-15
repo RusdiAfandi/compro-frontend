@@ -13,6 +13,7 @@ export const API_ENDPOINTS = {
     GET: '/interests',
     UPDATE: '/interests',
     RECOMMEND: '/interests/recommend',
+    RESET: '/interests/reset',
   },
   COURSES: '/courses',
   SIMULATION: {

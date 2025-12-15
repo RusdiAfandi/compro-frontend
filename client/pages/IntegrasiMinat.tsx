@@ -192,14 +192,28 @@ export default function IntegrasiMinat() {
     setShowEndSessionDialog(true);
   };
 
-  const confirmEndSession = () => {
-    // Reset all state
-    setSelectedHardskills([]);
-    setSelectedSoftskills([]);
-    setShowResults(false);
-    setShowEndSessionDialog(false);
-    // Navigate to dashboard or home
-    navigate("/dashboard");
+  const confirmEndSession = async () => {
+    try {
+      // Reset interests in database
+      await interestsService.resetInterests();
+      
+      // Reset all state
+      setSelectedHardskills([]);
+      setSelectedSoftskills([]);
+      setShowResults(false);
+      setShowEndSessionDialog(false);
+      
+      // Navigate to dashboard
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Error resetting interests:", error);
+      // Still reset state and navigate even if API call fails
+      setSelectedHardskills([]);
+      setSelectedSoftskills([]);
+      setShowResults(false);
+      setShowEndSessionDialog(false);
+      navigate("/dashboard");
+    }
   };
 
   // Show warning before page unload if data exists
