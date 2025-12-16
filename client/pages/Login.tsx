@@ -147,7 +147,7 @@ export default function Login() {
               <div className="space-y-2">
                 <input
                   type="text"
-                  placeholder="Nim Mahasiswa"
+                  placeholder="Student ID"
                   value={username}
                   onChange={(e) => {
                     setUsername(e.target.value);
