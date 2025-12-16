@@ -486,42 +486,27 @@ export default function SimulasiIPK() {
     return (
       <div className="min-h-screen bg-white flex flex-col">
         {/* Header with Sidebar Toggle */}
-        <header className="sticky top-0 z-50 bg-gradient-to-r from-aira-primary to-aira-secondary h-[72px] px-4 md:px-8 relative overflow-visible shadow-lg">
+        <header className="sticky top-0 z-50 bg-gradient-to-r from-aira-primary to-aira-secondary h-[72px] relative overflow-visible shadow-lg">
           {/* Decorative gradient circles */}
           <div className="absolute right-0 top-1/3 w-[600px] h-[600px] rounded-full opacity-[0.08] bg-gradient-to-br from-white via-white/50 to-transparent pointer-events-none" />
           <div className="absolute -left-32 -top-32 w-[500px] h-[500px] opacity-[0.1] pointer-events-none">
             <div className="w-full h-full rounded-full bg-gradient-to-br from-white to-transparent" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent pointer-events-none" />
-          <div className="relative max-w-7xl mx-auto h-full flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <button
-                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors relative z-10"
-              >
-                {isSidebarOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-6 h-6" />
-                )}
-              </button>
-              <button
-                type="button"
-                onClick={() => navigate("/dashboard")}
-                className="p-0 bg-transparent mt-1.5 -ml-[48px]"
-                aria-label="Ke Dashboard"
-              >
-                <img
-                  src="/assets/images/logo-aira-footer.png"
-                  alt="AIRA Logo"
-                  className="w-[140px] h-[140px] object-contain -my-[35px]"
-                />
-              </button>
-            </div>
-            <h1 className="absolute left-1/2 -translate-x-1/2 text-white text-xl md:text-2xl font-bold text-center">
+          <div className="relative h-full flex items-center justify-center">
+            <button
+              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+              className="absolute left-4 text-white p-2 hover:bg-white/10 rounded-lg transition-colors z-10"
+            >
+              {isSidebarOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+            <h1 className="text-white text-xl md:text-2xl font-bold text-center">
               Simulasi IPK
             </h1>
-            <div className="w-12 md:w-16"></div>
           </div>
         </header>
 
@@ -534,6 +519,21 @@ export default function SimulasiIPK() {
             } fixed left-0 top-[72px] md:top-[72px] bottom-0 z-40 w-64 bg-gradient-to-b from-aira-primary to-aira-secondary transition-transform duration-300 ease-in-out shadow-xl`}
           >
             <nav className="p-6 space-y-4 text-white h-full flex flex-col">
+              {/* Logo di Sidebar */}
+              <div className="flex justify-center mb-6 -mt-2">
+                <button
+                  type="button"
+                  onClick={() => navigate("/dashboard")}
+                  className="p-0 bg-transparent"
+                  aria-label="Ke Dashboard"
+                >
+                  <img
+                    src="/assets/images/logo-aira-footer.png"
+                    alt="AIRA Logo"
+                    className="w-[160px] h-[160px] object-contain"
+                  />
+                </button>
+              </div>
               <button
                 onClick={() => {
                   navigate("/dashboard");
@@ -907,42 +907,27 @@ export default function SimulasiIPK() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {/* Header with Sidebar Toggle */}
-      <header className="sticky top-0 z-50 bg-gradient-to-r from-aira-primary to-aira-secondary h-[72px] px-4 md:px-8 relative overflow-visible shadow-lg">
+      <header className="sticky top-0 z-50 bg-gradient-to-r from-aira-primary to-aira-secondary h-[72px] relative overflow-visible shadow-lg">
         {/* Decorative gradient circles */}
         <div className="absolute right-0 top-1/3 w-[600px] h-[600px] rounded-full opacity-[0.08] bg-gradient-to-br from-white via-white/50 to-transparent pointer-events-none" />
         <div className="absolute -left-32 -top-32 w-[500px] h-[500px] opacity-[0.1] pointer-events-none">
           <div className="w-full h-full rounded-full bg-gradient-to-br from-white to-transparent" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto h-full flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-              className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors relative z-10"
-            >
-              {isSidebarOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-            <button
-              type="button"
-              onClick={() => navigate("/dashboard")}
-              className="p-0 bg-transparent mt-1.5 -ml-[48px]"
-              aria-label="Ke Dashboard"
-            >
-              <img
-                src="/assets/images/logo-aira-footer.png"
-                alt="AIRA Logo"
-                className="w-[140px] h-[140px] object-contain -my-[35px]"
-              />
-            </button>
-          </div>
-          <h1 className="absolute left-1/2 -translate-x-1/2 text-white text-xl md:text-2xl font-bold text-center">
+        <div className="relative h-full flex items-center justify-center">
+          <button
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            className="absolute left-4 text-white p-2 hover:bg-white/10 rounded-lg transition-colors z-10"
+          >
+            {isSidebarOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
+          <h1 className="text-white text-xl md:text-2xl font-bold text-center">
             Simulasi IPK
           </h1>
-          <div className="w-12 md:w-16"></div>
         </div>
       </header>
 
@@ -955,6 +940,21 @@ export default function SimulasiIPK() {
           } fixed left-0 top-[72px] md:top-[72px] bottom-0 z-40 w-64 bg-gradient-to-b from-aira-primary to-aira-secondary transition-transform duration-300 ease-in-out shadow-xl`}
         >
           <nav className="p-6 space-y-4 text-white h-full flex flex-col">
+            {/* Logo di Sidebar */}
+            <div className="flex justify-center mb-6 -mt-2">
+              <button
+                type="button"
+                onClick={() => navigate("/dashboard")}
+                className="p-0 bg-transparent"
+                aria-label="Ke Dashboard"
+              >
+                <img
+                  src="/assets/images/logo-aira-footer.png"
+                  alt="AIRA Logo"
+                  className="w-[160px] h-[160px] object-contain"
+                />
+              </button>
+            </div>
             <button
               onClick={() => {
                 navigate("/dashboard");
