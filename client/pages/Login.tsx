@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Eye, ArrowLeft } from "lucide-react";
+import { Eye, EyeOff, ArrowLeft } from "lucide-react";
 import Footer from "@/components/Footer";
 import { authService } from "@/lib/api-service";
 import { setAuthToken } from "@/lib/api-config";
@@ -178,9 +178,14 @@ export default function Login() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
                     className="absolute right-5 top-1/2 -translate-y-1/2 text-[#ABA0A0]"
                   >
-                    <Eye className="w-8 h-5" />
+                    {showPassword ? (
+                      <EyeOff className="w-8 h-5" />
+                    ) : (
+                      <Eye className="w-8 h-5" />
+                    )}
                   </button>
                 </div>
                 {errors.password && (
