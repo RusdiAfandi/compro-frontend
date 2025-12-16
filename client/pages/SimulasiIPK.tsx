@@ -940,8 +940,8 @@ export default function SimulasiIPK() {
           } fixed left-0 top-[72px] md:top-[72px] bottom-0 z-40 w-64 bg-gradient-to-b from-aira-primary to-aira-secondary transition-transform duration-300 ease-in-out shadow-xl`}
         >
           <nav className="p-6 space-y-4 text-white h-full flex flex-col">
-            {/* Logo di Sidebar */}
-            <div className="flex justify-center mb-6 -mt-2">
+            {/* Logo di Sidebar (besar tapi tidak mendorong tombol) */}
+            <div className="relative flex justify-center mb-6 -mt-2 h-[160px] overflow-visible">
               <button
                 type="button"
                 onClick={() => navigate("/dashboard")}
@@ -951,7 +951,7 @@ export default function SimulasiIPK() {
                 <img
                   src="/assets/images/logo-aira-footer.png"
                   alt="AIRA Logo"
-                  className="w-[160px] h-[160px] object-contain"
+                  className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-8 w-[240px] h-[240px] object-contain"
                 />
               </button>
             </div>
