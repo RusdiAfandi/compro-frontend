@@ -95,13 +95,11 @@ export default function Footer() {
               </h3>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center">
-                    <img
-                      src="/assets/icons/icon-line.png"
-                      alt="Line"
-                      className="w-5 h-5"
-                    />
-                  </div>
+                  <img
+                    src="/assets/icons/icon-line.png"
+                    alt="Line"
+                    className="w-7 h-7"
+                  />
                   <span className="text-aira-text-light text-base">Line</span>
                 </li>
                 <li className="flex items-center gap-3">
@@ -128,7 +126,7 @@ export default function Footer() {
                   <img
                     src="/assets/icons/icon-facebook.png"
                     alt="Facebook"
-                    className="w-6 h-7"
+                    className="w-7 h-7"
                   />
                   <span className="text-aira-text-light text-base">
                     Facebook
